@@ -1,5 +1,7 @@
 ### Escuela Colombiana de Ingeniería
-### Arquitecturas de Software - ARSW
+### Arquitecturas de Software - ARSW  
+
+Integrantes: Cristian Rodríguez y Julia Mejía
 
 ## Escalamiento en Azure con Maquinas Virtuales, Sacale Sets y Service Plans
 
@@ -286,7 +288,9 @@ Dado que la suscripción de Azure para estudiantes no permitía la creación de 
 ![image](https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/111186898/068e0a8c-16dd-4b4f-9cdd-3848ea4f3a0b)  
 **Preguntas**
 * ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?, ¿Qué es SKU, qué tipos hay y en qué se diferencian?, ¿Por qué el balanceador de carga necesita una IP pública?
+
   R: Existen tres tipos de balanceadores de carga, cada uno operando en una capa diferente de la red:
+  
 1. **Balanceador de carga de nivel de aplicación (Application Gateway):**
    - Opera en la capa 7 (capa de aplicación) del modelo OSI.
    - Enruta el tráfico según datos específicos de la aplicación, como la URL o el encabezado HTTP.
@@ -298,8 +302,12 @@ Dado que la suscripción de Azure para estudiantes no permitía la creación de 
 3. **Gateway VPN (Virtual Private Network):**
    - Se utiliza para conectar una red virtual de Azure a una red local mediante una conexión VPN segura.
    - Enruta el tráfico de entrada y salida entre la red virtual y la red local, permitiendo la integración de servicios en la nube y locales.
+     
 En resumen, el balanceador de carga de nivel de aplicación se centra en el enrutamiento basado en datos específicos de la aplicación, el balanceador de carga de tráfico de red se especializa en distribuir uniformemente el tráfico entre los servidores de back-end, y el Gateway VPN proporciona conectividad segura entre redes virtuales de Azure y redes locales, facilitando la integración de servicios en la nube y locales.  
-El SKU (Stock Keeping Unit) es una designación única asignada a un recurso que especifica sus características, capacidades y precios. Esta identificación facilita a los usuarios la selección de la opción que mejor se ajusta a sus necesidades. Los SKU varían en términos de capacidad, escalabilidad, rendimiento y disponibilidad, y están disponibles para diversos recursos en Azure, abarcando máquinas virtuales, bases de datos, almacenamiento, servicios de red y otros servicios en la nube.
+
+
+El SKU (Stock Keeping Unit) es una designación única asignada a un recurso que especifica sus características, capacidades y precios. Esta identificación facilita a los usuarios la selección de la opción que mejor se ajusta a sus necesidades. Los SKU varían en términos de capacidad, escalabilidad, rendimiento y disponibilidad, y están disponibles para diversos recursos en Azure, abarcando máquinas virtuales, bases de datos, almacenamiento, servicios de red y otros servicios en la nube.  
+
 1. **SKU de máquina virtual (Virtual Machine SKU):**
    - Define las características y capacidades de una instancia de máquina virtual.
    - Incluye detalles como el número de núcleos de CPU, la cantidad de RAM, la capacidad de almacenamiento y el rendimiento de red.
@@ -316,16 +324,24 @@ El SKU (Stock Keeping Unit) es una designación única asignada a un recurso que
    - Define las características y capacidades de un servicio de red en Azure.
    - Incluye aspectos como la capacidad de ancho de banda, la disponibilidad y la seguridad.
    - Disponible en categorías como de uso general, optimizados para aplicaciones web y para aplicaciones empresariales.
-Un balanceador de carga requiere una dirección IP pública para posibilitar la comunicación de los clientes con los recursos de Azure ubicados detrás del mismo. La dirección IP pública se asigna al balanceador de carga y se utiliza para dirigir el tráfico de entrada hacia los recursos de Azure configurados en el conjunto de escalado asociado al balanceador. La ausencia de una dirección IP pública asignada al balanceador de carga impediría la capacidad de enrutamiento del tráfico entrante, resultando en la inaccesibilidad de los recursos situados detrás del balanceador de carga.
+
+     
+Un balanceador de carga requiere una dirección IP pública para posibilitar la comunicación de los clientes con los recursos de Azure ubicados detrás del mismo. La dirección IP pública se asigna al balanceador de carga y se utiliza para dirigir el tráfico de entrada hacia los recursos de Azure configurados en el conjunto de escalado asociado al balanceador. La ausencia de una dirección IP pública asignada al balanceador de carga impediría la capacidad de enrutamiento del tráfico entrante, resultando en la inaccesibilidad de los recursos situados detrás del balanceador de carga.  
+
 * ¿Cuál es el propósito del *Backend Pool*?
+
   R: El Backend Pool cumple principalmente la función de permitir que el balanceador de carga dirija el tráfico entrante hacia los recursos adecuados que se encuentran detrás de él. Los recursos que están configurados en el conjunto de escalado, tales como máquinas virtuales o instancias de contenedor, son agregados al Backend Pool del balanceador de carga. Posteriormente, el balanceador de carga emplea algoritmos de enrutamiento de tráfico, como Round Robin o Hash de IP, para distribuir de manera equitativa el tráfico entrante hacia los recursos de destino presentes en el Backend Pool. Este proceso asegura una distribución eficiente y equilibrada de la carga entre los recursos disponibles.
-  
+    
 * ¿Cuál es el propósito del *Health Probe*?
+
   R: El Health Probe es una herramienta fundamental en el contexto del balanceador de carga. Su función principal es supervisar y validar el estado de los recursos de destino que están configurados en el Backend Pool. El objetivo es asegurar que solo los recursos de destino que se encuentren disponibles y funcionando de manera adecuada reciban tráfico entrante del balanceador de carga. En otras palabras, el Health Probe actúa como un mecanismo de control de la salud de los recursos, garantizando que solo aquellos en un estado óptimo sean considerados para la distribución de carga, lo que mejora la confiabilidad y la eficiencia del sistema.
   
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
+
   R: Load Balancing Rule (Regla de Balanceo de Carga) es una directriz que especifica cómo el balanceador de carga debe dirigir el tráfico entrante hacia los recursos de destino configurados en el Backend Pool. Estas reglas establecen los criterios y las condiciones para determinar cómo se distribuirá la carga entre los recursos disponibles. Pueden incluir información como el puerto de destino, el protocolo utilizado y el algoritmo de balanceo de carga a aplicar.
+  
   La persistencia de sesión es fundamental para mantener el estado coherente de las interacciones de los usuarios, incluso en situaciones donde hay interrupciones o cambios en la infraestructura subyacente. Dos enfoques comunes para lograr esta persistencia son:
+  
 1. **Sesión basada en cookies:**
    - La información de sesión se almacena en una cookie enviada al cliente y recuperada en solicitudes posteriores.
    - El balanceador de carga de Azure puede configurarse para distribuir el tráfico según la cookie de sesión.
@@ -334,18 +350,30 @@ Un balanceador de carga requiere una dirección IP pública para posibilitar la 
    - La información de sesión se almacena en un servidor de sesión dedicado y se asocia con la dirección IP del cliente.
    - El balanceador de carga de Azure puede configurarse para distribuir el tráfico según la dirección IP del cliente.
    - Garantiza que las solicitudes posteriores del mismo cliente se dirijan siempre al mismo servidor de sesión, proporcionando persistencia.
+     
 La persistencia de sesión es crucial en aplicaciones web o móviles que requieren autenticación del usuario o retienen información significativa del usuario, como el carrito de compras en un sitio de comercio electrónico. Al garantizar que las interacciones del usuario se mantengan con coherencia a lo largo del tiempo, se mejora la experiencia del usuario y se evitan problemas asociados con la pérdida de datos de sesión.  
+
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
+
   R: Una Virtual Network (VNet) es un servicio que permite la creación de una red virtual aislada en la nube. Este entorno puede ser configurado con su propio conjunto de direcciones IP, subredes, reglas de seguridad y puertas de enlace, permitiendo la conexión con otras redes, ya sea Internet o redes locales.
-Una Subnet, por otro lado, es una subdivisión de una VNet que facilita la segmentación de la red en partes más pequeñas. Cada Subnet tiene su propio rango de direcciones IP dentro del espacio de direcciones IP asignado a la VNet. Las subredes pueden tener reglas de seguridad y puertas de enlace independientes, proporcionando una mayor segmentación y control de la red.
-El Address Space se refiere al rango de direcciones IP privadas que se pueden utilizar dentro de una VNet. Este espacio de direcciones se configura durante la creación de la VNet y define el conjunto de direcciones IP disponibles tanto para la VNet como para sus subredes.
+  
+Una Subnet, por otro lado, es una subdivisión de una VNet que facilita la segmentación de la red en partes más pequeñas. Cada Subnet tiene su propio rango de direcciones IP dentro del espacio de direcciones IP asignado a la VNet. Las subredes pueden tener reglas de seguridad y puertas de enlace independientes, proporcionando una mayor segmentación y control de la red.  
+
+El Address Space se refiere al rango de direcciones IP privadas que se pueden utilizar dentro de una VNet. Este espacio de direcciones se configura durante la creación de la VNet y define el conjunto de direcciones IP disponibles tanto para la VNet como para sus subredes.  
+
 En cuanto al Address Range, se trata del rango específico de direcciones IP disponible para una Subnet dentro de la VNet. Al crear una Subnet, es necesario definir un Address Range que esté dentro del Address Space de la VNet. Las direcciones IP asignadas a los recursos implementados en esa Subnet provendrán de este Address Range. En conjunto, estas definiciones proporcionan una estructura organizada y controlada para la red virtual en la nube.  
+
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
+
   R: Una Availability Zone (Zona de Disponibilidad) en Azure es un conjunto de centros de datos interconectados en una región. Cada zona está ubicada en un lugar físico independiente y diseñada para ser autónoma, lo que significa que permanece aislada de las fallas en otras zonas de la misma región. Este diseño proporciona mayor disponibilidad y resiliencia a las aplicaciones alojadas en Azure.
 La elección de tres zonas de disponibilidad diferentes se realiza con el objetivo de mejorar la disponibilidad y la resiliencia de la aplicación. Distribuyendo los recursos de la aplicación en tres zonas distintas, se garantiza que la aplicación pueda continuar operando incluso en caso de fallas en una o dos zonas de disponibilidad. Además, esta distribución permite mejorar el rendimiento al permitir que el tráfico se distribuya entre las distintas zonas de disponibilidad.
+
 La IP zone-redundant es una dirección IP pública asignable a un recurso de Azure, como una máquina virtual o un balanceador de carga. Esta dirección IP está disponible en todas las zonas de disponibilidad de una región de Azure. En caso de una falla en una zona de disponibilidad, la dirección IP pública sigue siendo accesible desde otras zonas, asegurando así la disponibilidad continua de la aplicación en situaciones adversas.  
+
 * ¿Cuál es el propósito del *Network Security Group*?
+
   R: El Network Security Group (NSG) cumple un papel fundamental al proporcionar una capa adicional de seguridad en una red virtual. Se trata de un grupo de seguridad que contiene reglas de filtrado de tráfico de red, permitiendo un control preciso sobre el tráfico que entra y sale de la red virtual en función de diversos criterios. Estas reglas del NSG pueden permitir o denegar el tráfico en base a:
+  
 1. **Dirección IP de origen y destino:**
    - Especifica qué direcciones IP pueden enviar o recibir tráfico.
 2. **Puerto de origen y destino:**
@@ -354,7 +382,9 @@ La IP zone-redundant es una dirección IP pública asignable a un recurso de Azu
    - Define el protocolo de red permitido (por ejemplo, TCP, UDP) para el tráfico.
 4. **Otros criterios:**
    - Puede incluir restricciones adicionales basadas en otros parámetros específicos de la red.
+     
 Esta capacidad de filtrado permite a los administradores de red personalizar las políticas de seguridad según las necesidades específicas de la aplicación y garantiza que solo el tráfico autorizado pueda acceder a los recursos de la red virtual. El NSG es una herramienta esencial para fortalecer la seguridad de la infraestructura en la nube.  
+
 * Informe de newman 1 (Punto 2)
 * Presente el Diagrama de Despliegue de la solución.
 ![image](https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/111186898/abc62ada-5a75-4cc7-8ef7-8ecded18c74b)
