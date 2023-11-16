@@ -200,13 +200,13 @@ Ejecutamos FibonacciApp-js
     Sí, con el nuevo tamaño la máquina virtual dispone de más recursos para realizar cálculos y atender peticiones.  
 13. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
     * Informe Petición 1:  
-      <img width="249" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4b869127-88c8-4bcb-bdf6-b62d8b2f23cc">  
+      <img width="400" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4b869127-88c8-4bcb-bdf6-b62d8b2f23cc">  
     * Informe Petición 2:  
-      <img width="236" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/f067586e-485f-435f-ac3e-e8cedd4567be">  
+      <img width="400" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/f067586e-485f-435f-ac3e-e8cedd4567be">  
     * Informe Petición 3:  
-      <img width="246" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/20f422ed-2624-4432-90ec-d86aa0c7acd9">  
-    * Informe Peticion 4:
-      <img width="239" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/6a15c299-0f1c-427b-83c6-b35f4fe27b9b">
+      <img width="400" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/20f422ed-2624-4432-90ec-d86aa0c7acd9">  
+    * Informe Peticion 4:  
+      <img width="400" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/6a15c299-0f1c-427b-83c6-b35f4fe27b9b">  
       El comportamiento del sistema no mejoró  
 
 
