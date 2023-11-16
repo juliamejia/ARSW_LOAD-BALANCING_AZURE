@@ -44,23 +44,48 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 6. Antes de verificar si el endpoint funciona, en Azure vaya a la sección de *Networking* y cree una *Inbound port rule* tal como se muestra en la imágen. Para verificar que la aplicación funciona, use un browser y user el endpoint `http://xxx.xxx.xxx.xxx:3000/fibonacci/6`. La respuesta debe ser `The answer is 8`.
 
-![](images/part1/part1-vm-3000InboudRule.png)
+![](images/part1/part1-vm-3000InboudRule.png)  
+<img width="413" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/46a22d75-06b3-422d-8f8a-7fd83187df75">  
+<img width="296" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/29cb3397-2224-4f29-96c1-e2a99deb19bc">  
 
 7. La función que calcula en enésimo número de la secuencia de Fibonacci está muy mal construido y consume bastante CPU para obtener la respuesta. Usando la consola del Browser documente los tiempos de respuesta para dicho endpoint usando los siguintes valores:
     * 1000000
-    * 1010000
-    * 1020000
-    * 1030000
-    * 1040000
-    * 1050000
-    * 1060000
-    * 1070000
-    * 1080000
-    * 1090000    
+      <img width="937" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/28bb922c-5622-4d85-9fad-88fc03f4dfbb">  
+
+    * 1010000  
+      <img width="937" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/c42c7e3c-a88e-4e32-a73f-d389386b115a">  
+
+    * 1020000  
+      <img width="939" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/462b703d-337d-4cb3-8d09-15eb733c4321">  
+
+    * 1030000  
+      <img width="940" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/0b70b155-3161-47c4-8b0d-8296fdfebe37">  
+
+    * 1040000  
+      <img width="939" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/527f5272-3a7a-4f6d-b9b8-aa821cea19f9">  
+
+    * 1050000  
+      <img width="939" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/236a5a8b-1ca3-475e-973c-fe4448fc8b55">  
+
+    * 1060000  
+      <img width="937" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/c222a5c9-c31b-4c89-bd5b-5d6b1c80880c">  
+
+    * 1070000  
+      <img width="943" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/bb9f83a9-ec5a-4514-aeba-c28b485eddf7">  
+
+    * 1080000  
+      <img width="939" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/b780b975-9f8e-44ac-9147-e4b2ac5e15f9">  
+
+    * 1090000  
+      <img width="938" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/2d20452c-6b96-4a36-b6ee-f2a3f138d480">  
+
 
 8. Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).
 
-![Imágen 2](images/part1/part1-vm-cpu.png)
+![Imágen 2](images/part1/part1-vm-cpu.png)  
+
+   <img width="178" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/06a9b6de-241d-45be-b227-7dcad00cd72f">  
+
 
 9. Ahora usaremos Postman para simular una carga concurrente a nuestro sistema. Siga estos pasos.
     * Instale newman con el comando `npm install newman -g`. Para conocer más de Newman consulte el siguiente [enlace](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/).
@@ -73,29 +98,105 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
     newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALANCING_AZURE].postman_environment.json -n 10
     ```
 
+    <img width="640" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/e14028ef-adc7-423e-bd68-e5bddebd3462">  
+    <img width="409" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/6b05129c-168e-49ae-8b3e-db3386970eb4">  
+    <img width="784" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/bcb9e238-92aa-4da3-aea2-70abbc922fb6">  
+
+
 10. La cantidad de CPU consumida es bastante grande y un conjunto considerable de peticiones concurrentes pueden hacer fallar nuestro servicio. Para solucionarlo usaremos una estrategia de Escalamiento Vertical. En Azure diríjase a la sección *size* y a continuación seleccione el tamaño `B2ms`.
 
-![Imágen 3](images/part1/part1-vm-resize.png)
+![Imágen 3](images/part1/part1-vm-resize.png)  
+
+<img width="597" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/b5b58ead-b5bb-47cb-9150-3891f568d569">  
 
 11. Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.
-12. Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.
-13. Vuelva a dejar la VM en el tamaño inicial para evitar cobros adicionales.
+    Paso 7
+    * 1000000  
+      <img width="935" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/fb1100fb-2a6f-43b2-9aea-b4fea2ba3cdf">  
+    * 1010000  
+      <img width="937" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/179fcaae-a21d-4133-b0be-3485ddedf7d3">  
+    * 1020000  
+      <img width="938" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/3f883316-16f8-45c6-8ce2-a4148c57ef4c">  
+    * 1030000  
+      <img width="627" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/60dcb033-f5be-4985-9e60-1f53d7bf8b97">  
+    * 1040000  
+      <img width="938" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/19d395e2-7ac9-4a38-b6b0-575e4c01fd10">  
+    * 1050000  
+      <img width="941" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/0612fa69-ebab-4e4c-a120-ae67dace7cc6">  
+    * 1060000  
+      <img width="938" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/d1db91bb-b3b0-485c-90a7-c962c9c4ce71">  
+    * 1070000  
+      <img width="935" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/e8def40c-f601-4903-ae14-1c9e0136ad16">  
+    * 1080000  
+      <img width="938" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/ae32482c-1859-4c24-be79-967f7c9fe0a9">  
+    * 1090000  
+      <img width="625" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4c83a23a-8d20-4cb6-b463-b7ed68911227">  
+   PASO 8
+   <img width="269" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/f50998b1-8242-4d4e-848d-cd1fde6cdfcd">
+
+   PASO 9  
+   <img width="602" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/953bdc0d-8db6-44b2-9344-21d58772c895">  
+   <img width="297" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/c6122181-cc5b-4eda-9fe0-909d597fc405">  
+   <img width="296" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/08853022-289a-472a-8e3f-edce04c327c9">  
+   <img width="361" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/f5c4f566-86e0-4915-9f5a-9f4b5b8d7372">  
+   <img width="420" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/da36db4a-c3a6-4c89-a192-91288a973d3b">  
+   <img width="499" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/b8b34a6f-03f1-4a55-a610-0eac37a327e2">  
+   <img width="269" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/245c9880-1e53-4a7b-844f-d31474f22e60">  
+   <img width="371" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/35c1c301-22a0-40b6-81cb-7b5d84bb5283">  
+ 
+13. Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.
+   Cuando llevamos a cabo la escalabilidad vertical y cumplimos con el escenario de calidad planificado, estamos mejorando la calidad del servicio. Esto se logra al      aumentar las especificaciones de la máquina virtual (VM), lo que resulta en respuestas más eficientes a las solicitudes y un uso más efectivo de la unidad central     de procesamiento (CPU
+14. Vuelva a dejar la VM en el tamaño inicial para evitar cobros adicionales.
 
 **Preguntas**
 
 1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?
+   * Red virtual/subred virtual
+   * Dirección IP pública
+   * Grupo de seguridad de red
+   * Interfaz de red
+   * OS disk
 2. ¿Brevemente describa para qué sirve cada recurso?
-3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?
+   * Red virtual/subred virtual:
+   Es similar a una red convencional y facilita la comunicación segura entre varios recursos de Azure, como máquinas virtuales, usuarios, internet y otras redes          locales. La Red Virtual proporciona beneficios adicionales, como escalabilidad, disponibilidad y aislamiento, gracias a la infraestructura de Azure.
+   * Dirección IP pública:
+   Habilita la comunicación de los recursos de Azure con Internet y los servicios públicos de Azure. Estas direcciones son asignadas dinámicamente por Azure.
+   * Grupo de seguridad de red:
+   Actúa como un filtro de red para el tráfico desde y hacia los recursos de Azure en una red virtual de Azure. Se basa en un conjunto de reglas de seguridad que         permiten o bloquean el tráfico de red entrante o saliente. Cada regla especifica origen, destino, puerto y protocolo.
+   * Interfaz de red:
+   Es un componente que facilita la comunicación entre las máquinas virtuales de Azure, Internet y otros recursos de Azure.
+   * Disco del sistema operativo (OS disk):
+   Es el almacenamiento destinado al sistema operativo de la máquina virtual creada.
+
+3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?  
+   Al ejecutar el comando, el proceso estará vinculado al usuario que lo inició. Si ese usuario cierra la conexión, el proceso también se cerrará. Cuando la máquina      se inicia, la mayoría de los puertos están cerrados por razones de seguridad. Para permitir la conexión a un puerto específico, es necesario abrir ese puerto en       la configuración de la máquina virtual. Esto asegura que el servicio asociado a dicho puerto sea accesible y funcione correctamente.
+   
 4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
+   <img width="181" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/0325aafd-9fad-459e-b2a3-3e46a1a566d6">  
+   Calcular la secuencia de Fibonacci requiere una cantidad significativa de recursos. En una máquina con recursos limitados, el cálculo tomará más tiempo debido a       las limitaciones de capacidad. En cambio, en una máquina más potente o robusta, los tiempos de espera serán más cortos, ya que tiene la capacidad de manejar           eficientemente la carga de trabajo, agilizando el proceso de cálculo.  
+   
 5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
+   <img width="321" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/c14f6404-1127-45f7-a699-860e931c5b64">
+   La secuencia de Fibonacci realiza muchos cálculos repetitivos, lo que resulta en un alto consumo de la CPU con cada solicitud. Una solución viable es emplear algún    método de memorización. Esto implica almacenar los cálculos previamente realizados, de modo que al calcular números más altos, no sea necesario repetir todo el        proceso, sino que se pueden reutilizar los resultados obtenidos anteriormente. Esto ayuda a optimizar el rendimiento y a reducir la carga en la CPU al evitar          cálculos innecesarios.
+
 6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
     * Tiempos de ejecución de cada petición.
     * Si hubo fallos documentelos y explique.
-7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?
-8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?
+   <img width="780" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/8bf95cb2-0242-484a-8b9b-8cad40adb4be">  
+   No hubo fallos en la ejecución
+
+7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?  
+   <img width="297" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4de6b275-ab1f-4190-b722-d9033ac8d764">
+   Ambos tamaños se usan principalmente para desarrollo o pruebas por lo que el tráfico de datos que manejan es bajo/medio  
+
+8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?  
+   Incrementar el tamaño puede ofrecer una solución provisional al problema, ya que al hacerlo se observa una reducción en el uso de recursos. No obstante, se debería    buscar una solución a largo plazo que evite cálculos redundantes. Esto se logra mediante la memorización de resultados previos, lo que contribuirá a una               disminución adicional en los tiempos de respuesta. En lugar de depender únicamente del aumento de recursos, se busca una estrategia más eficiente y sostenible para    optimizar el rendimiento a largo plazo.
 9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
-10. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
-11. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
+    Cuando ajustamos el tamaño de la máquina, esta requiere reiniciarse, lo que ocasiona la pérdida de la conexión SSH y la necesidad de restablecerla. Además, si no      guardamos la dirección IP, existe la posibilidad de que Azure la modifique. El reinicio de la máquina implica también el reinicio del servidor web, lo que             significa que las solicitudes realizadas durante ese periodo pueden quedar sin respuesta.
+
+11. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
+    Sí, con el nuevo tamaño la máquina virtual dispone de más recursos para realizar cálculos y atender peticiones.  
+13. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
 
 ### Parte 2 - Escalabilidad horizontal
 
