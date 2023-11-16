@@ -1,7 +1,5 @@
 ### Escuela Colombiana de Ingeniería
-### Arquitecturas de Software - ARSW  
-
-Integrantes: Cristian Rodríguez y Julia Mejía
+### Arquitecturas de Software - ARSW
 
 ## Escalamiento en Azure con Maquinas Virtuales, Sacale Sets y Service Plans
 
@@ -47,8 +45,9 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 6. Antes de verificar si el endpoint funciona, en Azure vaya a la sección de *Networking* y cree una *Inbound port rule* tal como se muestra en la imágen. Para verificar que la aplicación funciona, use un browser y user el endpoint `http://xxx.xxx.xxx.xxx:3000/fibonacci/6`. La respuesta debe ser `The answer is 8`.
 
 ![](images/part1/part1-vm-3000InboudRule.png)  
-<img width="413" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/46a22d75-06b3-422d-8f8a-7fd83187df75">  
-<img width="296" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/29cb3397-2224-4f29-96c1-e2a99deb19bc">  
+Ejecutamos FibonacciApp-js  
+<img width="1000" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/46a22d75-06b3-422d-8f8a-7fd83187df75">  
+<img width="600" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/29cb3397-2224-4f29-96c1-e2a99deb19bc">  
 
 7. La función que calcula en enésimo número de la secuencia de Fibonacci está muy mal construido y consume bastante CPU para obtener la respuesta. Usando la consola del Browser documente los tiempos de respuesta para dicho endpoint usando los siguintes valores:
     * 1000000
@@ -86,7 +85,7 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ![Imágen 2](images/part1/part1-vm-cpu.png)  
 
-   <img width="178" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/06a9b6de-241d-45be-b227-7dcad00cd72f">  
+   <img width="500" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/06a9b6de-241d-45be-b227-7dcad00cd72f">  
 
 
 9. Ahora usaremos Postman para simular una carga concurrente a nuestro sistema. Siga estos pasos.
@@ -132,9 +131,10 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
     * 1080000  
       <img width="938" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/ae32482c-1859-4c24-be79-967f7c9fe0a9">  
     * 1090000  
-      <img width="625" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4c83a23a-8d20-4cb6-b463-b7ed68911227">  
-   PASO 8
-   <img width="269" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/f50998b1-8242-4d4e-848d-cd1fde6cdfcd">
+      <img width="625" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4c83a23a-8d20-4cb6-b463-b7ed68911227">
+      
+   PASO 8  
+   <img width="500" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/f50998b1-8242-4d4e-848d-cd1fde6cdfcd">  
 
    PASO 9  
    <img width="602" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/953bdc0d-8db6-44b2-9344-21d58772c895">  
@@ -147,56 +147,56 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
    <img width="371" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/35c1c301-22a0-40b6-81cb-7b5d84bb5283">  
  
 13. Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.
-   Cuando llevamos a cabo la escalabilidad vertical y cumplimos con el escenario de calidad planificado, estamos mejorando la calidad del servicio. Esto se logra al      aumentar las especificaciones de la máquina virtual (VM), lo que resulta en respuestas más eficientes a las solicitudes y un uso más efectivo de la unidad central     de procesamiento (CPU
-14. Vuelva a dejar la VM en el tamaño inicial para evitar cobros adicionales.
+   Cuando llevamos a cabo la escalabilidad vertical y cumplimos con el escenario de calidad planificado, estamos mejorando la calidad del servicio. Esto se logra al      aumentar las especificaciones de la máquina virtual (VM), lo que resulta en respuestas más eficientes a las solicitudes y un uso más efectivo de la unidad central     de procesamiento (CPU)  
+14. Vuelva a dejar la VM en el tamaño inicial para evitar cobros adicionales.  
 
 **Preguntas**
 
-1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?
+1. ¿Cuántos y cuáles recursos crea Azure junto con la VM?  
    * Red virtual/subred virtual
    * Dirección IP pública
    * Grupo de seguridad de red
    * Interfaz de red
-   * OS disk
-2. ¿Brevemente describa para qué sirve cada recurso?
-   * Red virtual/subred virtual:
-   Es similar a una red convencional y facilita la comunicación segura entre varios recursos de Azure, como máquinas virtuales, usuarios, internet y otras redes          locales. La Red Virtual proporciona beneficios adicionales, como escalabilidad, disponibilidad y aislamiento, gracias a la infraestructura de Azure.
-   * Dirección IP pública:
-   Habilita la comunicación de los recursos de Azure con Internet y los servicios públicos de Azure. Estas direcciones son asignadas dinámicamente por Azure.
-   * Grupo de seguridad de red:
-   Actúa como un filtro de red para el tráfico desde y hacia los recursos de Azure en una red virtual de Azure. Se basa en un conjunto de reglas de seguridad que         permiten o bloquean el tráfico de red entrante o saliente. Cada regla especifica origen, destino, puerto y protocolo.
-   * Interfaz de red:
-   Es un componente que facilita la comunicación entre las máquinas virtuales de Azure, Internet y otros recursos de Azure.
-   * Disco del sistema operativo (OS disk):
-   Es el almacenamiento destinado al sistema operativo de la máquina virtual creada.
+   * OS disk  
+2. ¿Brevemente describa para qué sirve cada recurso?  
+   * Red virtual/subred virtual:  
+   Es similar a una red convencional y facilita la comunicación segura entre varios recursos de Azure, como máquinas virtuales, usuarios, internet y otras redes          locales. La Red Virtual proporciona beneficios adicionales, como escalabilidad, disponibilidad y aislamiento, gracias a la infraestructura de Azure.  
+   * Dirección IP pública:  
+   Habilita la comunicación de los recursos de Azure con Internet y los servicios públicos de Azure. Estas direcciones son asignadas dinámicamente por Azure.  
+   * Grupo de seguridad de red:  
+   Actúa como un filtro de red para el tráfico desde y hacia los recursos de Azure en una red virtual de Azure. Se basa en un conjunto de reglas de seguridad que         permiten o bloquean el tráfico de red entrante o saliente. Cada regla especifica origen, destino, puerto y protocolo.  
+   * Interfaz de red:  
+   Es un componente que facilita la comunicación entre las máquinas virtuales de Azure, Internet y otros recursos de Azure.  
+   * Disco del sistema operativo (OS disk):  
+   Es el almacenamiento destinado al sistema operativo de la máquina virtual creada.  
 
 3. ¿Al cerrar la conexión ssh con la VM, por qué se cae la aplicación que ejecutamos con el comando `npm FibonacciApp.js`? ¿Por qué debemos crear un *Inbound port rule* antes de acceder al servicio?  
-   Al ejecutar el comando, el proceso estará vinculado al usuario que lo inició. Si ese usuario cierra la conexión, el proceso también se cerrará. Cuando la máquina      se inicia, la mayoría de los puertos están cerrados por razones de seguridad. Para permitir la conexión a un puerto específico, es necesario abrir ese puerto en       la configuración de la máquina virtual. Esto asegura que el servicio asociado a dicho puerto sea accesible y funcione correctamente.
+   Al ejecutar el comando, el proceso estará vinculado al usuario que lo inició. Si ese usuario cierra la conexión, el proceso también se cerrará. Cuando la máquina      se inicia, la mayoría de los puertos están cerrados por razones de seguridad. Para permitir la conexión a un puerto específico, es necesario abrir ese puerto en       la configuración de la máquina virtual. Esto asegura que el servicio asociado a dicho puerto sea accesible y funcione correctamente.  
    
-4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.
+4. Adjunte tabla de tiempos e interprete por qué la función tarda tando tiempo.  
    <img width="181" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/0325aafd-9fad-459e-b2a3-3e46a1a566d6">  
    Calcular la secuencia de Fibonacci requiere una cantidad significativa de recursos. En una máquina con recursos limitados, el cálculo tomará más tiempo debido a       las limitaciones de capacidad. En cambio, en una máquina más potente o robusta, los tiempos de espera serán más cortos, ya que tiene la capacidad de manejar           eficientemente la carga de trabajo, agilizando el proceso de cálculo.  
    
-5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.
-   <img width="321" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/c14f6404-1127-45f7-a699-860e931c5b64">
-   La secuencia de Fibonacci realiza muchos cálculos repetitivos, lo que resulta en un alto consumo de la CPU con cada solicitud. Una solución viable es emplear algún    método de memorización. Esto implica almacenar los cálculos previamente realizados, de modo que al calcular números más altos, no sea necesario repetir todo el        proceso, sino que se pueden reutilizar los resultados obtenidos anteriormente. Esto ayuda a optimizar el rendimiento y a reducir la carga en la CPU al evitar          cálculos innecesarios.
+5. Adjunte imágen del consumo de CPU de la VM e interprete por qué la función consume esa cantidad de CPU.  
+   <img width="321" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/c14f6404-1127-45f7-a699-860e931c5b64">  
+   La secuencia de Fibonacci realiza muchos cálculos repetitivos, lo que resulta en un alto consumo de la CPU con cada solicitud. Una solución viable es emplear algún    método de memorización. Esto implica almacenar los cálculos previamente realizados, de modo que al calcular números más altos, no sea necesario repetir todo el        proceso, sino que se pueden reutilizar los resultados obtenidos anteriormente. Esto ayuda a optimizar el rendimiento y a reducir la carga en la CPU al evitar          cálculos innecesarios.  
 
-6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:
+6. Adjunte la imagen del resumen de la ejecución de Postman. Interprete:  
     * Tiempos de ejecución de cada petición.
     * Si hubo fallos documentelos y explique.
    <img width="780" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/8bf95cb2-0242-484a-8b9b-8cad40adb4be">  
-   No hubo fallos en la ejecución
+   No hubo fallos en la ejecución  
 
 7. ¿Cuál es la diferencia entre los tamaños `B2ms` y `B1ls` (no solo busque especificaciones de infraestructura)?  
-   <img width="297" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4de6b275-ab1f-4190-b722-d9033ac8d764">
+   <img width="297" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/4de6b275-ab1f-4190-b722-d9033ac8d764">  
    Ambos tamaños se usan principalmente para desarrollo o pruebas por lo que el tráfico de datos que manejan es bajo/medio  
 
 8. ¿Aumentar el tamaño de la VM es una buena solución en este escenario?, ¿Qué pasa con la FibonacciApp cuando cambiamos el tamaño de la VM?  
-   Incrementar el tamaño puede ofrecer una solución provisional al problema, ya que al hacerlo se observa una reducción en el uso de recursos. No obstante, se debería    buscar una solución a largo plazo que evite cálculos redundantes. Esto se logra mediante la memorización de resultados previos, lo que contribuirá a una               disminución adicional en los tiempos de respuesta. En lugar de depender únicamente del aumento de recursos, se busca una estrategia más eficiente y sostenible para    optimizar el rendimiento a largo plazo.
-9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?
-    Cuando ajustamos el tamaño de la máquina, esta requiere reiniciarse, lo que ocasiona la pérdida de la conexión SSH y la necesidad de restablecerla. Además, si no      guardamos la dirección IP, existe la posibilidad de que Azure la modifique. El reinicio de la máquina implica también el reinicio del servidor web, lo que             significa que las solicitudes realizadas durante ese periodo pueden quedar sin respuesta.
+   Incrementar el tamaño puede ofrecer una solución provisional al problema, ya que al hacerlo se observa una reducción en el uso de recursos. No obstante, se debería    buscar una solución a largo plazo que evite cálculos redundantes. Esto se logra mediante la memorización de resultados previos, lo que contribuirá a una               disminución adicional en los tiempos de respuesta. En lugar de depender únicamente del aumento de recursos, se busca una estrategia más eficiente y sostenible para    optimizar el rendimiento a largo plazo.  
+9. ¿Qué pasa con la infraestructura cuando cambia el tamaño de la VM? ¿Qué efectos negativos implica?  
+    Cuando ajustamos el tamaño de la máquina, esta requiere reiniciarse, lo que ocasiona la pérdida de la conexión SSH y la necesidad de restablecerla. Además, si no      guardamos la dirección IP, existe la posibilidad de que Azure la modifique. El reinicio de la máquina implica también el reinicio del servidor web, lo que             significa que las solicitudes realizadas durante ese periodo pueden quedar sin respuesta.  
 
-11. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?
+11. ¿Hubo mejora en el consumo de CPU o en los tiempos de respuesta? Si/No ¿Por qué?  
     Sí, con el nuevo tamaño la máquina virtual dispone de más recursos para realizar cálculos y atender peticiones.  
 13. Aumente la cantidad de ejecuciones paralelas del comando de postman a `4`. ¿El comportamiento del sistema es porcentualmente mejor?
 
@@ -288,9 +288,7 @@ Dado que la suscripción de Azure para estudiantes no permitía la creación de 
 ![image](https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/111186898/068e0a8c-16dd-4b4f-9cdd-3848ea4f3a0b)  
 **Preguntas**
 * ¿Cuáles son los tipos de balanceadores de carga en Azure y en qué se diferencian?, ¿Qué es SKU, qué tipos hay y en qué se diferencian?, ¿Por qué el balanceador de carga necesita una IP pública?
-
   R: Existen tres tipos de balanceadores de carga, cada uno operando en una capa diferente de la red:
-  
 1. **Balanceador de carga de nivel de aplicación (Application Gateway):**
    - Opera en la capa 7 (capa de aplicación) del modelo OSI.
    - Enruta el tráfico según datos específicos de la aplicación, como la URL o el encabezado HTTP.
@@ -302,12 +300,8 @@ Dado que la suscripción de Azure para estudiantes no permitía la creación de 
 3. **Gateway VPN (Virtual Private Network):**
    - Se utiliza para conectar una red virtual de Azure a una red local mediante una conexión VPN segura.
    - Enruta el tráfico de entrada y salida entre la red virtual y la red local, permitiendo la integración de servicios en la nube y locales.
-     
 En resumen, el balanceador de carga de nivel de aplicación se centra en el enrutamiento basado en datos específicos de la aplicación, el balanceador de carga de tráfico de red se especializa en distribuir uniformemente el tráfico entre los servidores de back-end, y el Gateway VPN proporciona conectividad segura entre redes virtuales de Azure y redes locales, facilitando la integración de servicios en la nube y locales.  
-
-
-El SKU (Stock Keeping Unit) es una designación única asignada a un recurso que especifica sus características, capacidades y precios. Esta identificación facilita a los usuarios la selección de la opción que mejor se ajusta a sus necesidades. Los SKU varían en términos de capacidad, escalabilidad, rendimiento y disponibilidad, y están disponibles para diversos recursos en Azure, abarcando máquinas virtuales, bases de datos, almacenamiento, servicios de red y otros servicios en la nube.  
-
+El SKU (Stock Keeping Unit) es una designación única asignada a un recurso que especifica sus características, capacidades y precios. Esta identificación facilita a los usuarios la selección de la opción que mejor se ajusta a sus necesidades. Los SKU varían en términos de capacidad, escalabilidad, rendimiento y disponibilidad, y están disponibles para diversos recursos en Azure, abarcando máquinas virtuales, bases de datos, almacenamiento, servicios de red y otros servicios en la nube.
 1. **SKU de máquina virtual (Virtual Machine SKU):**
    - Define las características y capacidades de una instancia de máquina virtual.
    - Incluye detalles como el número de núcleos de CPU, la cantidad de RAM, la capacidad de almacenamiento y el rendimiento de red.
@@ -324,24 +318,16 @@ El SKU (Stock Keeping Unit) es una designación única asignada a un recurso que
    - Define las características y capacidades de un servicio de red en Azure.
    - Incluye aspectos como la capacidad de ancho de banda, la disponibilidad y la seguridad.
    - Disponible en categorías como de uso general, optimizados para aplicaciones web y para aplicaciones empresariales.
-
-     
-Un balanceador de carga requiere una dirección IP pública para posibilitar la comunicación de los clientes con los recursos de Azure ubicados detrás del mismo. La dirección IP pública se asigna al balanceador de carga y se utiliza para dirigir el tráfico de entrada hacia los recursos de Azure configurados en el conjunto de escalado asociado al balanceador. La ausencia de una dirección IP pública asignada al balanceador de carga impediría la capacidad de enrutamiento del tráfico entrante, resultando en la inaccesibilidad de los recursos situados detrás del balanceador de carga.  
-
+Un balanceador de carga requiere una dirección IP pública para posibilitar la comunicación de los clientes con los recursos de Azure ubicados detrás del mismo. La dirección IP pública se asigna al balanceador de carga y se utiliza para dirigir el tráfico de entrada hacia los recursos de Azure configurados en el conjunto de escalado asociado al balanceador. La ausencia de una dirección IP pública asignada al balanceador de carga impediría la capacidad de enrutamiento del tráfico entrante, resultando en la inaccesibilidad de los recursos situados detrás del balanceador de carga.
 * ¿Cuál es el propósito del *Backend Pool*?
-
   R: El Backend Pool cumple principalmente la función de permitir que el balanceador de carga dirija el tráfico entrante hacia los recursos adecuados que se encuentran detrás de él. Los recursos que están configurados en el conjunto de escalado, tales como máquinas virtuales o instancias de contenedor, son agregados al Backend Pool del balanceador de carga. Posteriormente, el balanceador de carga emplea algoritmos de enrutamiento de tráfico, como Round Robin o Hash de IP, para distribuir de manera equitativa el tráfico entrante hacia los recursos de destino presentes en el Backend Pool. Este proceso asegura una distribución eficiente y equilibrada de la carga entre los recursos disponibles.
-    
+  
 * ¿Cuál es el propósito del *Health Probe*?
-
   R: El Health Probe es una herramienta fundamental en el contexto del balanceador de carga. Su función principal es supervisar y validar el estado de los recursos de destino que están configurados en el Backend Pool. El objetivo es asegurar que solo los recursos de destino que se encuentren disponibles y funcionando de manera adecuada reciban tráfico entrante del balanceador de carga. En otras palabras, el Health Probe actúa como un mecanismo de control de la salud de los recursos, garantizando que solo aquellos en un estado óptimo sean considerados para la distribución de carga, lo que mejora la confiabilidad y la eficiencia del sistema.
   
 * ¿Cuál es el propósito de la *Load Balancing Rule*? ¿Qué tipos de sesión persistente existen, por qué esto es importante y cómo puede afectar la escalabilidad del sistema?.
-
   R: Load Balancing Rule (Regla de Balanceo de Carga) es una directriz que especifica cómo el balanceador de carga debe dirigir el tráfico entrante hacia los recursos de destino configurados en el Backend Pool. Estas reglas establecen los criterios y las condiciones para determinar cómo se distribuirá la carga entre los recursos disponibles. Pueden incluir información como el puerto de destino, el protocolo utilizado y el algoritmo de balanceo de carga a aplicar.
-  
   La persistencia de sesión es fundamental para mantener el estado coherente de las interacciones de los usuarios, incluso en situaciones donde hay interrupciones o cambios en la infraestructura subyacente. Dos enfoques comunes para lograr esta persistencia son:
-  
 1. **Sesión basada en cookies:**
    - La información de sesión se almacena en una cookie enviada al cliente y recuperada en solicitudes posteriores.
    - El balanceador de carga de Azure puede configurarse para distribuir el tráfico según la cookie de sesión.
@@ -350,30 +336,18 @@ Un balanceador de carga requiere una dirección IP pública para posibilitar la 
    - La información de sesión se almacena en un servidor de sesión dedicado y se asocia con la dirección IP del cliente.
    - El balanceador de carga de Azure puede configurarse para distribuir el tráfico según la dirección IP del cliente.
    - Garantiza que las solicitudes posteriores del mismo cliente se dirijan siempre al mismo servidor de sesión, proporcionando persistencia.
-     
 La persistencia de sesión es crucial en aplicaciones web o móviles que requieren autenticación del usuario o retienen información significativa del usuario, como el carrito de compras en un sitio de comercio electrónico. Al garantizar que las interacciones del usuario se mantengan con coherencia a lo largo del tiempo, se mejora la experiencia del usuario y se evitan problemas asociados con la pérdida de datos de sesión.  
-
 * ¿Qué es una *Virtual Network*? ¿Qué es una *Subnet*? ¿Para qué sirven los *address space* y *address range*?
-
   R: Una Virtual Network (VNet) es un servicio que permite la creación de una red virtual aislada en la nube. Este entorno puede ser configurado con su propio conjunto de direcciones IP, subredes, reglas de seguridad y puertas de enlace, permitiendo la conexión con otras redes, ya sea Internet o redes locales.
-  
-Una Subnet, por otro lado, es una subdivisión de una VNet que facilita la segmentación de la red en partes más pequeñas. Cada Subnet tiene su propio rango de direcciones IP dentro del espacio de direcciones IP asignado a la VNet. Las subredes pueden tener reglas de seguridad y puertas de enlace independientes, proporcionando una mayor segmentación y control de la red.  
-
-El Address Space se refiere al rango de direcciones IP privadas que se pueden utilizar dentro de una VNet. Este espacio de direcciones se configura durante la creación de la VNet y define el conjunto de direcciones IP disponibles tanto para la VNet como para sus subredes.  
-
+Una Subnet, por otro lado, es una subdivisión de una VNet que facilita la segmentación de la red en partes más pequeñas. Cada Subnet tiene su propio rango de direcciones IP dentro del espacio de direcciones IP asignado a la VNet. Las subredes pueden tener reglas de seguridad y puertas de enlace independientes, proporcionando una mayor segmentación y control de la red.
+El Address Space se refiere al rango de direcciones IP privadas que se pueden utilizar dentro de una VNet. Este espacio de direcciones se configura durante la creación de la VNet y define el conjunto de direcciones IP disponibles tanto para la VNet como para sus subredes.
 En cuanto al Address Range, se trata del rango específico de direcciones IP disponible para una Subnet dentro de la VNet. Al crear una Subnet, es necesario definir un Address Range que esté dentro del Address Space de la VNet. Las direcciones IP asignadas a los recursos implementados en esa Subnet provendrán de este Address Range. En conjunto, estas definiciones proporcionan una estructura organizada y controlada para la red virtual en la nube.  
-
 * ¿Qué son las *Availability Zone* y por qué seleccionamos 3 diferentes zonas?. ¿Qué significa que una IP sea *zone-redundant*?
-
   R: Una Availability Zone (Zona de Disponibilidad) en Azure es un conjunto de centros de datos interconectados en una región. Cada zona está ubicada en un lugar físico independiente y diseñada para ser autónoma, lo que significa que permanece aislada de las fallas en otras zonas de la misma región. Este diseño proporciona mayor disponibilidad y resiliencia a las aplicaciones alojadas en Azure.
 La elección de tres zonas de disponibilidad diferentes se realiza con el objetivo de mejorar la disponibilidad y la resiliencia de la aplicación. Distribuyendo los recursos de la aplicación en tres zonas distintas, se garantiza que la aplicación pueda continuar operando incluso en caso de fallas en una o dos zonas de disponibilidad. Además, esta distribución permite mejorar el rendimiento al permitir que el tráfico se distribuya entre las distintas zonas de disponibilidad.
-
 La IP zone-redundant es una dirección IP pública asignable a un recurso de Azure, como una máquina virtual o un balanceador de carga. Esta dirección IP está disponible en todas las zonas de disponibilidad de una región de Azure. En caso de una falla en una zona de disponibilidad, la dirección IP pública sigue siendo accesible desde otras zonas, asegurando así la disponibilidad continua de la aplicación en situaciones adversas.  
-
 * ¿Cuál es el propósito del *Network Security Group*?
-
   R: El Network Security Group (NSG) cumple un papel fundamental al proporcionar una capa adicional de seguridad en una red virtual. Se trata de un grupo de seguridad que contiene reglas de filtrado de tráfico de red, permitiendo un control preciso sobre el tráfico que entra y sale de la red virtual en función de diversos criterios. Estas reglas del NSG pueden permitir o denegar el tráfico en base a:
-  
 1. **Dirección IP de origen y destino:**
    - Especifica qué direcciones IP pueden enviar o recibir tráfico.
 2. **Puerto de origen y destino:**
@@ -382,9 +356,7 @@ La IP zone-redundant es una dirección IP pública asignable a un recurso de Azu
    - Define el protocolo de red permitido (por ejemplo, TCP, UDP) para el tráfico.
 4. **Otros criterios:**
    - Puede incluir restricciones adicionales basadas en otros parámetros específicos de la red.
-     
 Esta capacidad de filtrado permite a los administradores de red personalizar las políticas de seguridad según las necesidades específicas de la aplicación y garantiza que solo el tráfico autorizado pueda acceder a los recursos de la red virtual. El NSG es una herramienta esencial para fortalecer la seguridad de la infraestructura en la nube.  
-
 * Informe de newman 1 (Punto 2)
 * Presente el Diagrama de Despliegue de la solución.
 ![image](https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/111186898/abc62ada-5a75-4cc7-8ef7-8ecded18c74b)
