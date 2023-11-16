@@ -206,7 +206,8 @@ Ejecutamos FibonacciApp-js
     * Informe Petición 3:  
       <img width="246" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/20f422ed-2624-4432-90ec-d86aa0c7acd9">  
     * Informe Peticion 4:
-      <img width="239" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/6a15c299-0f1c-427b-83c6-b35f4fe27b9b">  
+      <img width="239" alt="image" src="https://github.com/juliamejia/ARSW_LOAD-BALANCING_AZURE/assets/98657146/6a15c299-0f1c-427b-83c6-b35f4fe27b9b">
+      El comportamiento del sistema no mejoró  
 
 
 ### Parte 2 - Escalabilidad horizontal
